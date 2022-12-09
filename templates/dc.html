@@ -17,15 +17,27 @@ body {
 
 <style>
 body {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZBvZILaGwZsTk8H3OgrIyiPG4kF8mBDx3bKBBl6rq&s');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background-color: #380356;
+}
+
+h1 {
+  color: purple;
+  margin-left: 40px;
 }
 </style>
 <body>
     <h1>Things 2FA</h1>
-    <button id="generate-otp">Generate</button>
+	<head>
+  <style>
+    button#generate-otp:hover {
+      transform: scale(1.1);
+	  transition: transform 0.5s;
+    }
+  </style>
+  
+</head>
+<body>
+  <button id="generate-otp" style="background-color: #CCC3E3; border-radius: 10px; height: 30px; width: 100px;">Generate</button>
     <p id="otp-value"></p>
 
     <script>
@@ -45,7 +57,7 @@ body {
                 .catch(error => console.error(error))
         })
     </script>
-</body>
 </center>
-    <script src="/particles.js"></script>
+</body>
+
 </html>
