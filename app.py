@@ -26,4 +26,4 @@ def generate_otp(secret_key):
 def gen():
     return render_template('index.html')
 app = Flask(__name__)
-    app.run()
+app.run()
