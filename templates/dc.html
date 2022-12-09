@@ -1,0 +1,51 @@
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Varela Round';font-size: 22px;
+}
+</style>
+</head>
+<body>
+<html>
+
+<head>
+<center>
+    <title>OTP Generator</title>
+</head>
+
+<style>
+body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZBvZILaGwZsTk8H3OgrIyiPG4kF8mBDx3bKBBl6rq&s');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+<body>
+    <h1>Things 2FA</h1>
+    <button id="generate-otp">Generate</button>
+    <p id="otp-value"></p>
+
+    <script>
+        const generateOtpButton = document.getElementById('generate-otp')
+        const optv = document.getElementById('otp-value')
+
+        generateOtpButton.addEventListener('click', () => {
+		x = prompt('What is your secret key?')
+            fetch('/generate/' + x)
+                .then(response => response.json())
+                //.then(data => console.log(data))
+                // pop up alert for data
+                .then(data => {
+                    alert(data.otp)
+                    optv.innerHTML = data.otp
+                })
+                .catch(error => console.error(error))
+        })
+    </script>
+</body>
+</center>
+    <script src="/particles.js"></script>
+</html>
