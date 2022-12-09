@@ -22,7 +22,7 @@ def generate_otp(secret_key):
     response.headers['Access-Control-Allow-Origin'] = '*'
 
     return response
-@app.route('/gen')
+@app.route('/')
 def gen():
     return render_template('index.html')
 if __name__ == '__main__':
