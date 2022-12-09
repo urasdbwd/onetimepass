@@ -23,5 +23,4 @@ def generate_otp(secret_key):
 
     return response
 app = Flask(__name__)
-if __name__ == '__main__':
     app.run()
