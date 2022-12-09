@@ -22,5 +22,8 @@ def generate_otp(secret_key):
     response.headers['Access-Control-Allow-Origin'] = '*'
 
     return response
+@app.route('/gen')
+def gen():
+    return render_template('index.html')
 app = Flask(__name__)
     app.run()
