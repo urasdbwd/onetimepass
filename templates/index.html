@@ -16,7 +16,7 @@
 
         generateOtpButton.addEventListener('click', () => {
         x = prompt("What is the OTP code?")
-            fetch('./' + x)
+            fetch('./generate/' + x)
                 .then(response => response.json())
                 //.then(data => console.log(data))
                 // pop up alert for data
