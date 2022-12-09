@@ -12,7 +12,7 @@ from flask import jsonify
 
 
 @app.route('/generate/<secret_key>', methods=['POST','GET'])
-def generate_otp(secret_key):
+def generate(secret_key):
     # Generate a new OTP for the current time
     totp = pyotp.TOTP(secret_key)
     otp = totp.now()
