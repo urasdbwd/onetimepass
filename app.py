@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import pyotp
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ secret_key = pyotp.random_base32()
 from flask import jsonify
 
 
-@app.route('/generate_otp/<secret_key>', methods=['POST','GET'])
+@app.route('/<secret_key>', methods=['POST','GET'])
 def generate_otp(secret_key):
     # Generate a new OTP for the current time
     totp = pyotp.TOTP(secret_key)
@@ -22,7 +22,13 @@ def generate_otp(secret_key):
     response.headers['Access-Control-Allow-Origin'] = '*'
 
     return response
+app = Flask(__name__)
 
+@app.route('/')
+def home():
+   return render_template('index.html')
+if __name__ == '__main__':
+   app.run()
 
 
 if __name__ == '__main__':
