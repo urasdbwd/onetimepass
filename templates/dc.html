@@ -57,7 +57,7 @@ h1 {
                 .then(data => {
                     alert(data.otp)
                    var a = document.createElement("a");
-					a.setAttribute("href", "/generate/" + x);
+					a.setAttribute("href", "/generate/" + y);
 					a.innerHTML = data.otp;
 					document.body.appendChild(a);
                 })
