@@ -24,6 +24,6 @@ def generate_otp(secret_key):
     return response
 @app.route('/')
 def gen():
-    return render_template('dc.html')
+    return render_template('index.html')
 if __name__ == '__main__':
     app.run()
