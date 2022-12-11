@@ -11,9 +11,12 @@ secret_key = pyotp.random_base32()
 from flask import jsonify
 
 
-@app.route('/generate/<secret_key>', methods=['POST'])
-def generate_otp(secret_key):
+@app.route('/generate', methods=['POST'])
+def generate_otp():
     # Generate a new OTP for the current time
+    secret_key = request.form['secret_key']
+    print (secret_key)
+
     totp = pyotp.TOTP(secret_key)
     otp = totp.now()
 
