@@ -50,7 +50,12 @@ h1 {
         generateOtpButton.addEventListener('click', () => {
 		x = prompt('What is your secret key?')
 		y = x.replace(/\s/g,'')
-            fetch('/generate/' + y)
+            fetch('/generate/' + y, {
+  method: 'POST',
+  body: JSON.stringify({
+    key1: 'value1',
+    key2: 'value2'
+  })
                 .then(response => response.json())
                 //.then(data => console.log(data))
                 // pop up alert for data
