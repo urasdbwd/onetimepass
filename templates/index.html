@@ -43,8 +43,8 @@
       const optv = document.getElementById('otp-value')
       window.onload = () => {
         generateOtpButton.addEventListener('click', () => {
-          key = prompt('What is your secret key?')
-          y = key.replace(/\s/g, '')
+          x = prompt('What is your secret key?')
+          y = x.replace(/\s/g, '')
           fetch('/generate', {
             method: 'POST',
             headers: {
@@ -57,7 +57,7 @@
 
             .then(response => response.json())
             .then(data => {
-             alert(secret_key)
+              alert(data.otp)
             })
 
         })
