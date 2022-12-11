@@ -51,10 +51,10 @@ h1 {
     		x = prompt('What is your secret key?')
    		y = x.replace(/\s/g,'')
     		fetch('/generate/' + y, {
-        	method: 'POST',
-        	body: JSON.stringify({
-            	secret_key: y
-        })
+        		method: 'POST',
+       			body: JSON.stringify({
+			secret_key: y
+                })
     })
     .then(response => response.json())
     .then(data => {
