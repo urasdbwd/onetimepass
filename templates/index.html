@@ -47,9 +47,6 @@
           y = x.replace(/\s/g, '')
           fetch('/generate', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            },
             form: {
               secret_key: y
             }
