@@ -46,16 +46,17 @@ h1 {
     <script>
         const generateOtpButton = document.getElementById('generate-otp')
         const optv = document.getElementById('otp-value')
-
-        generateOtpButton.addEventListener('click', () => {
+	window.onload = () => {
+        	generateOtpButton.addEventListener('click', () => {
     		x = prompt('What is your secret key?')
    		y = x.replace(/\s/g,'')
     		fetch('/generate/' + y, {
         		method: 'POST',
-       			body: JSON.stringify({
+       			body: JSON.stringify{
 			secret_key: y
-                })
-    })
+                }
+    }
+	}
     .then(response => response.json())
     .then(data => {
         alert(data.secret_key)
