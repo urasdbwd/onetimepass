@@ -48,21 +48,22 @@ h1 {
         const optv = document.getElementById('otp-value')
 
         generateOtpButton.addEventListener('click', () => {
-		x = prompt('What is your secret key?')
-		y = x.replace(/\s/g,'')
-            fetch('/generate/' + y, {
- 		method: 'POST',
-  		body: JSON.stringify({
-   		secret_key: y
- 		 })
-                .then(response => response.json())
-                //.then(data => console.log(data))
-                // pop up alert for data
-                .then(data => {
-                    alert(data.otp)
+    		x = prompt('What is your secret key?')
+   		y = x.replace(/\s/g,'')
+    		fetch('/generate/' + y, {
+        	method: 'POST',
+        	body: JSON.stringify({
+            	secret_key: y
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.secret_key)
+    })
+})
                    var a = document.createElement("a");
 					a.setAttribute("href", "/generate/" + y);
-					a.innerHTML = data.otp;
+					a.innerHTML = secret_key;
 					document.body.appendChild(a);
                 })
                 .catch(error => console.error(error))
