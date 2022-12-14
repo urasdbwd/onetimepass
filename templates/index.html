@@ -39,28 +39,32 @@
     <p id="otp-value"></p>
 
     <script>
-  const generateOtpButton = document.getElementById('generate-otp')
-  const optv = document.getElementById('otp-value')
-    window.onload = () => {
-    generateOtpButton.addEventListener('click', () => {
-      x = prompt('What is your secret key?')
-      y = x.replace(/\s/g, '')
-      fetch('/generate', {
-        method: 'POST',
-        body: JSON.stringify({ secret_key: y }),
+    const generateOtpButton = document.getElementById('generate-otp')
+    const optv = document.getElementById('otp-value')
 
-        headers: {
-          'Content-Type': 'application/json'
-        }
-          })
+window.onload = () => {
+  generateOtpButton.addEventListener('click', () => {
+    // Prompt the user for their secret key
+    const secretKey = prompt('What is your secret key?')
 
-        .then(response => response.json())
-        .then(data => {
-          alert(data.otp)
-         })
+    // Remove all whitespace from the secret key
+    const sanitizedSecretKey = secretKey.replace(/\s/g, '')
 
-        })
+    // Send the POST request to the '/generate' endpoint
+    fetch('/generate', {
+      method: 'POST',
+      body: JSON.stringify({ secret_key: sanitizedSecretKey }), // stringify the request body
+      headers: {
+        'Content-Type': 'application/json' // set the Content-Type header
       }
+    })
+
+      .then(response => response.json()) // parse the response as JSON
+      .then(data => {
+        alert(data.otp) // alert the generated OTP
+      })
+  })
+}
     </script>
 </center>
 </body>
