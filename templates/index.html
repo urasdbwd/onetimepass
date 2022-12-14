@@ -39,6 +39,8 @@
     <p id="otp-value"></p>
 
     <script>
+  const generateOtpButton = document.getElementById('generate-otp')
+  const optv = document.getElementById('otp-value')
     window.onload = () => {
     generateOtpButton.addEventListener('click', () => {
       x = prompt('What is your secret key?')
