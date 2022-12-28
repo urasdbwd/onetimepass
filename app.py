@@ -2,7 +2,6 @@ from flask import Flask, request, render_template
 import pyotp
 
 app = Flask(__name__)
-
 # Generate a new random secret key
 # The secret key should be shared between the user and the server
 secret_key = pyotp.random_base32()
@@ -14,8 +13,8 @@ from flask import jsonify
 @app.route('/generate', methods=['POST'])
 def generate_otp():
     # Generate a new OTP for the current time
-    secret_key = request.form['secret_key']
-    print (secret_key)
+    jsondata = request.get_json()
+    secret_key = jsondata['otp']
 
     totp = pyotp.TOTP(secret_key)
     otp = totp.now()
@@ -26,7 +25,14 @@ def generate_otp():
 
     return response
 @app.route('/')
-def gen():
-    return render_template('index.html')
+def hi():
+    return render_template('runme.html')
+
+
+@app.route('/...')
+def bye():
+    return ('things.png')
+
 if __name__ == '__main__':
-    app.run()
+    #listen to port 5555
+    app.run( port=5555, debug=True)
