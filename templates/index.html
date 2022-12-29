@@ -51,7 +51,25 @@
         <input type="Submit" value ="Submit" id="generate-otp"></br>
         </form>
         <p id="otp-value"></p>
-        
+        <script>
+<script>
+  // Get a reference to the form and the text field
+  const form = document.querySelector('#form');
+  const textField = document.querySelector('#generate');
+
+  // Add an event listener to the form's submit event
+  form.addEventListener('submit', (event) => {
+    // Prevent the form from being submitted
+    event.preventDefault();
+
+    // Get the value of the text field
+    const secretKey = textField.value;
+
+    // Do something with the secretKey variable
+    console.log(secretKey);
+  });
+</script>
+
         <div class="toast-container position-fixed top-0 end-0 p-3 ">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -72,19 +90,6 @@
 
             window.onload = () => {
                 generateOtpButton.addEventListener('click', () => {
-                    // Prompt the user for their secret key
-                    const form = document.querySelector('form');
-                    const textField = document.querySelector('#generate');
-
-                    // Add an event listener to the form's submit event
-                    form.addEventListener('submit', (event) => {
-                     // Prevent the form from being submitted
-                    event.preventDefault();
-
-                    // Get the value of the text field
-                    const secretKey = textField.value;
-
-                    // Do something with the secretKey variable
                     const sanitizedSecretKey = secretKey.replace(/\s/g, '')
   });
 
