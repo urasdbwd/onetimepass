@@ -26,7 +26,7 @@ def generate_otp():
     return response
 @app.route('/')
 def hi():
-    return render_template('runme.html')
+    return render_template('index.html')
 
 
 @app.route('/...')
