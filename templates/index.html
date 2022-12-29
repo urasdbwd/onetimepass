@@ -46,11 +46,13 @@
                 transition: transform 0.5s;
             }
         </style>
+        <form>
         <input type="text" name="bah" id="generate"></br>
         <input type="Submit" value ="Submit" id="generate-otp"></br>
+        </form>
             style="background-color: #CCC3E3; border-radius: 10px; height: 30px; width: 100px;">Click</button>
         <p id="otp-value"></p>
-
+        
         <div class="toast-container position-fixed top-0 end-0 p-3 ">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -72,9 +74,20 @@
             window.onload = () => {
                 generateOtpButton.addEventListener('click', () => {
                     // Prompt the user for their secret key
-                    const secretKey = prompt('What is your secret key?')
-                    // Remove all whitespace from the secret key
+                    const form = document.querySelector('form');
+                    const textField = document.querySelector('#generate');
+
+                    // Add an event listener to the form's submit event
+                    form.addEventListener('submit', (event) => {
+                     // Prevent the form from being submitted
+                    event.preventDefault();
+
+                    // Get the value of the text field
+                    const secretKey = textField.value;
+
+                    // Do something with the secretKey variable
                     const sanitizedSecretKey = secretKey.replace(/\s/g, '')
+  });
 
                     // Send the POST request to the '/generate' endpoint
                     const response = fetch('./generate', {
