@@ -29,7 +29,7 @@ def hi():
     return render_template('index.html')
 
 
-@app.route('/...')
+@app.route('/things.png')
 def bye():
     return ('things.png')
 
