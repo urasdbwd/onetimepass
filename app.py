@@ -31,8 +31,7 @@ def hi():
 
 @app.route('/things.png')
 def bye():
-    return ('things.png')
+    return render_template('things.png')
 
 if __name__ == '__main__':
-    #listen to port 5555
-    app.run( port=5555, debug=True)
+    app.run()
